@@ -47,6 +47,19 @@ const calcRemainingFuel = ({ fuelBurnRate, time }) => {
   return params.remainingFuel - (fuelBurnRate * time);
 };
 
+try {
+  // Perform calculations
+  const newVelocity = calcNewVelocity(params);
+  const newDistance = calcNewDistance({ initialDistance: params.initialDistance, velocity: params.velocity, time: params.time });
+  const remainingFuel = calcRemainingFuel(params);
+
+  // Output results
+  console.log(`Corrected New Velocity: ${newVelocity} km/h`);
+  console.log(`Corrected New Distance: ${newDistance} km`);
+  console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
+} catch (error) {
+  console.error(error.message);
+
 
 
 
