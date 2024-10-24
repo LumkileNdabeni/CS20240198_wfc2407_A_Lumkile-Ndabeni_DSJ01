@@ -37,6 +37,15 @@ const calcNewDistance = ({ initialDistance, velocity, time }) => {
   return initialDistance + (velocity * (time / 3600)); // Convert seconds to hours for km/h
 };
 
+// Function to calculate remaining fuel
+const calcRemainingFuel = ({ fuelBurnRate, time }) => {
+  if (typeof fuelBurnRate !== 'number' || typeof time !== 'number') {
+    throw new Error("Invalid input: fuel burn rate and time must be numbers.");
+  }
+
+  // Calculate remaining fuel in kg
+  return params.remainingFuel - (fuelBurnRate * time);
+};
 
 
 
