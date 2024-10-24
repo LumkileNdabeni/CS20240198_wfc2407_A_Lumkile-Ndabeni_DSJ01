@@ -16,7 +16,16 @@ const params = {
   fuelBurnRate: 0.5 // fuel burn rate (kg/s)
 };
 
-
+// Function to calculate new velocity
+const calcNewVelocity = ({ velocity, acceleration, time }) => {
+  // Check if inputs are valid numbers
+  if (typeof velocity !== 'number' || typeof acceleration !== 'number' || typeof time !== 'number') {
+    throw new Error("Invalid input: velocity, acceleration, and time must be numbers.");
+  }
+  
+  // Calculate new velocity in km/h
+  return velocity + (acceleration * time * 3.6); // Convert m/s² to km/h
+};
 
 
 
