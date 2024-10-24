@@ -27,7 +27,15 @@ const calcNewVelocity = ({ velocity, acceleration, time }) => {
   return velocity + (acceleration * time * 3.6); // Convert m/s² to km/h
 };
 
+// Function to calculate new distance
+const calcNewDistance = ({ initialDistance, velocity, time }) => {
+  if (typeof initialDistance !== 'number' || typeof velocity !== 'number' || typeof time !== 'number') {
+    throw new Error("Invalid input: distance, velocity, and time must be numbers.");
+  }
 
+  // Calculate new distance in km
+  return initialDistance + (velocity * (time / 3600)); // Convert seconds to hours for km/h
+};
 
 
 
